@@ -27,6 +27,7 @@
         "status": "Completed"
     }
 ]
+```
 
 ## 2. Get Task by ID
 **URI**: `/task/{id}`  
@@ -42,11 +43,13 @@
     "description": "Example task 1",
     "status": "Created"
 }
+```
 **Status Code**: `404 Not Found`  
 ```json
 {
     "error": "Task not found"
 } // jika ID yang diberikan tidak sesuai dengan yang ada
+```
 
 ## 3. Create Task
 **URI**: `/task`  
@@ -58,14 +61,14 @@
     "description": "New task description",
     "status": "Created" // Allowed values: "Created", "Pending", "Completed"
 }
-
+```
 **atau**
 ```json
 {
     "description": "New task description",
     "status": "Created" // Allowed values: "Created", "Pending", "Completed"
 }
-
+```
 **Response Body**:  
 **Status Code**: `201 Created`  
 ```json
@@ -75,12 +78,13 @@
     "description": "New task description",
     "status": "Created"
 }
+```
 **Status Code**: `400 Bad Request` 
 ```json
 {
     "error": "Invalid status. Allowed values are 'Created', 'Pending', or 'Completed'."
 } // jika status yang diinput tidak sesuai
-
+```
 ## 4. Update Task Status
 **URI**: `/task/{id}`  
 **URI PARAMETER**: `{ID}` wajib  
@@ -95,6 +99,7 @@
     "description": "Example task 1",
     "status": "Pending"
 } // jika Task sbebelumnya berstatus Created maka akan berubah menjadi Pending
+```
 **atau**
 ```json
 {
@@ -103,17 +108,19 @@
     "description": "Example task 1",
     "status": "Completed"
 } // jika Task sbebelumnya berstatus Pending maka akan berubah menjadi Completed
+```
 **Status Code**: `404 Not Found`  
 ```json
 {
     "error": "Task not found"
 } // jika ID yang diberikan tidak sesuai dengan yang ada
+```
 **Status Code**: `403 Forbidden`  
 ```json
 {
     "error": "Task is already completed and cannot be updated"
 } // jika task yang di update sudah berstatus completed
-
+```
 ## 5. Delete Task
 **URI**: `/task/{id}`  
 **URI PARAMETER**: `{ID}` wajib  
@@ -125,8 +132,10 @@
 {
     "message": "Task deleted successfully"
 }
+```
 **Status Code**: `404 Not Found`  
 ```json
 {
     "error": "Task not found"
 } // jika ID yang diberikan tidak sesuai dengan yang ada
+```
